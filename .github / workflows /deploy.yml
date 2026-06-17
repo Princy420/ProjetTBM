@@ -3,7 +3,8 @@ name: Deploy Vite App to GitHub Pages
 on:
   push:
     branches:
-      - main # Mettez 'master' si votre branche principale s'appelle master
+      - main
+  workflow_dispatch: # <--- Cela va forcer l'affichage du bouton manuel !
 
 permissions:
   contents: write
@@ -21,7 +22,7 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Build
         run: npm run build
